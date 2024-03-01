@@ -14,37 +14,30 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MicrosoftEdgeDriverTest {
 
-	public static void main(String[] args) {
-	    // Set the location of the Microsoft Edge WebDriver executable
+	public static void main(String[] args) {	  
+		
         System.setProperty("webdriver.edge.driver", "D:\\Edge Driver\\msedgedriver.exe");
-        
-        // Initialize EdgeOptions if needed (optional, for additional configurations)
+            
         EdgeOptions options = new EdgeOptions();
-        
-        // Instantiate the EdgeDriver with the EdgeOptions
+    
         WebDriver driver = new EdgeDriver(options);
-        
-        // Example action: navigate to a webpage
+             
         driver.get("http://www.google.com");
         
         driver.findElement(By.name("q")).sendKeys( "google news");
 		 
-		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Adjust time as necessary
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); 
+		 
 		 wait.until(ExpectedConditions.elementToBeClickable(By.name("btnK"))).click();
 		 
-
 	     wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("search")));
 
-	  
 	     try {
 	         wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText("Google News"))).click();
 	     } catch (Exception e) {
 	         System.out.println("Failed to find Google News link in search results.");	          
 	     }
 		 
-		 
-	
-		// driver.findElement(By.linkText("Google News")).click();
 		 JavascriptExecutor js = (JavascriptExecutor)driver;
 		 
 		 try {
@@ -53,6 +46,7 @@ public class MicrosoftEdgeDriverTest {
 		 catch (Exception f){
 			 System.out.println("Failed to scroll down to look at news.");
 		 }
+		 
 		 driver.quit();  
     }
 }
