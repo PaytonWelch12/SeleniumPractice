@@ -15,13 +15,13 @@ public class ChromeDriverTest {
 
 	public static void main(String[] args) {
 		
-		 System.setProperty("webdriver.chrome.driver", "D:\\ChromeDriver\\chromedriver.exe");  
-		 
-		 WebDriver driver=new ChromeDriver(); 
-		 
-		 driver.navigate().to("http://www.google.com/");  
-		 
-		 driver.manage().window().maximize();
+		System.setProperty("webdriver.chrome.driver", "D:\\ChromeDriver\\chromedriver.exe");
+
+		WebDriver driver = new ChromeDriver();
+
+		driver.navigate().to("http://www.google.com/");
+
+		driver.manage().window().maximize();
 		 
 		 driver.findElement(By.name("q")).sendKeys( "google news");
 		 
